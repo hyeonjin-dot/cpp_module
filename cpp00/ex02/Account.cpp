@@ -54,6 +54,7 @@ void    Account::displayStatus() const
 	std::cout << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
+//보증금
 void	Account::makeDeposit(int deposit)
 {
 	_amount += deposit;
@@ -75,6 +76,7 @@ int Account::checkAmount( void ) const
     return (0);
 }
 
+//인출
 bool    Account::makeWithdrawal(int withdrawal)
 {
     _amount = _amount - withdrawal;
@@ -99,6 +101,7 @@ bool    Account::makeWithdrawal(int withdrawal)
     }
 }
 
+//생성
 Account::Account(int initial_deposit)
 {
     _accountIndex = _nbAccounts++;
@@ -112,6 +115,7 @@ Account::Account(int initial_deposit)
     std::cout << ";created" << std::endl;
 }
 
+//삭제
 Account::~Account(void)
 {
     _nbAccounts--;

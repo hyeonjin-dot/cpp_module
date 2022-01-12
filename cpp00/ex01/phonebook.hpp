@@ -14,10 +14,9 @@ private:
     std::string nickname;
     std::string phone_number;
     std::string darkest_secret;
-    //int         len=1;
+
 public:
     void    add();
-    //void    reserch();
     void    print_all();
     void    print_info();
     std::string add_spot(std::string str);
