@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 int ft_strlen(char *str)

@@ -1,4 +1,3 @@
-
 #include "phonebook.hpp"
 
 void    contact::add()

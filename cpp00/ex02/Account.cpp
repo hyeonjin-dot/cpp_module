@@ -1,4 +1,3 @@
-
 #include "Account.hpp"
 #include <iostream>
 #include <time.h>
