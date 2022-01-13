@@ -1,11 +1,13 @@
-NAME = Moar_brainz
+
+NAME = Unnecessary_violence
 
 CC = clang++
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = Zombie.cpp \
-	ZombieHorde.cpp \
+SRCS = Weapon.cpp \
+	HumanA.cpp \
+	HumanB.cpp \
 	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)

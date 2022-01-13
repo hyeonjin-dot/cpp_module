@@ -3,6 +3,7 @@
 # define ZOMBIE_HPP
 
 #include <iostream>
+#include <string>
 
 class Zombie {
     private :
@@ -10,7 +11,9 @@ class Zombie {
 
     public :
         void    announce();
+        void    get_name(std::string name);
         ~Zombie();
+        Zombie();
         Zombie(std::string name);
 };
 

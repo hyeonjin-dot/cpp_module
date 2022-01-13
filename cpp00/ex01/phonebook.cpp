@@ -95,7 +95,7 @@ int main()
             number[i].add();
             j++;
         }
-        else if (command == "RESERCH")
+        else if (command == "SEARCH")
             reserch(number);
     }
 }

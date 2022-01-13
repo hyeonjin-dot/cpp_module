@@ -1,12 +1,10 @@
-NAME = Moar_brainz
+NAME = this_is_brain
 
 CC = clang++
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = Zombie.cpp \
-	ZombieHorde.cpp \
-	main.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
