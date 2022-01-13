@@ -43,6 +43,8 @@ void   contact::print_info()
     std::cout << this->last_name << std::endl;
     std::cout << "NICKNAME : ";
     std::cout << this->nickname << std::endl;
+    std::cout << "INPUT PHONENUNBER : ";
+    std::cout << this->phone_number << std::endl;
     std::cout << "DARKEST SECRET : ";
     std::cout << this->darkest_secret << std::endl;
 }
