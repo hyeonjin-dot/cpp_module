@@ -37,9 +37,13 @@ void    contact::print_all()
 
 void   contact::print_info()
 {
+    std::cout << "FIRST NAME : ";
     std::cout << this->first_name << std::endl;
+    std::cout << "LAST NAME : ";
     std::cout << this->last_name << std::endl;
+    std::cout << "NICKNAME : ";
     std::cout << this->nickname << std::endl;
+    std::cout << "DARKEST SECRET : ";
     std::cout << this->darkest_secret << std::endl;
 }
 
