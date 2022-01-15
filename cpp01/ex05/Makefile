@@ -1,14 +1,11 @@
 
-NAME = Unnecessary_violence
+NAME = Karen
 
 CC = clang++
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = Weapon.cpp \
-	HumanA.cpp \
-	HumanB.cpp \
-	main.cpp
+SRCS = Karen.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
