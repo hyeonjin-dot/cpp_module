@@ -5,9 +5,7 @@ CC = clang++
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = Weapon.cpp \
-	HumanA.cpp \
-	HumanB.cpp \
+SRCS = Karen.cpp \
 	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
