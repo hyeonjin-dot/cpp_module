@@ -1,11 +1,12 @@
 
-NAME = Karen
+NAME = Karen_2.0
 
 CC = clang++
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = Karen.cpp
+SRCS = Karen.cpp \
+	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

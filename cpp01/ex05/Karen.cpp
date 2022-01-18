@@ -30,5 +30,5 @@ void	Karen::error(void)
 
 void    Karen::complain(std::string level)
 {
-
+	
 }

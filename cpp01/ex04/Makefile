@@ -1,5 +1,5 @@
 
-NAME = Unnecessary_violence
+NAME = replace
 
 CC = clang++
 
