@@ -30,5 +30,19 @@ void	Karen::error(void)
 
 void    Karen::complain(std::string level)
 {
-	
+	t_find	table[4] = {
+		{"DEBUG",	&Karen::debug},
+		{"INFO",	&Karen::info},
+		{"WARNING",	&Karen::warning},
+		{"ERROR",	&Karen::error}
+	};
+	std::string	array[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string *ptr = std::find(array, array + 4, level);
+	int idx = ptr - array;
+	void	(Karen::*tmp)(void);
+
+	std::cout << "[ " << level << " ]" << std::endl;
+	tmp = table[idx].f;
+	(this->*tmp)();
+	std::cout << std::endl;
 }

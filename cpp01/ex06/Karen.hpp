@@ -16,5 +16,9 @@ private:
     void    error();
 };
 
+typedef struct	s_find {
+	std::string	str;
+	void	(Karen::*f)();
+}				t_find;
 
 #endif
