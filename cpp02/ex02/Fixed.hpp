@@ -22,9 +22,25 @@ public:
 
     float   toFloat( void ) const;
     int     toInt( void ) const;
+
+    Fixed	operator+(Fixed const & src) const;
+    Fixed	operator-(Fixed const & src) const;
+    Fixed	operator*(Fixed const & src) const;
+    Fixed	operator/(Fixed const & src) const;
+
+    bool    operator>(Fixed const & src) const;
+    bool    operator<(Fixed const & src) const;
+    bool    operator>=(Fixed const & src) const;
+    bool    operator<=(Fixed const & src) const;
+    bool    operator==(Fixed const & src) const;
+    bool    operator!=(Fixed const & src) const;
+
+    //Fixed   &max(Fixed &a, Fixed &b);//??
+    //Fixed const &max(Fixed const &a, Fixed const &b);//??
+
+    Fixed	operator++(int a);//????
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &value);//
-
 
 #endif

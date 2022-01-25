@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 
 std::string rename(std::string name, std::string s1, std::string s2)
@@ -49,12 +50,10 @@ int main(int argc, char *argv[])
     while (true)
     {
         std::getline(ifs, name);
-        while (idx >= 0)
-        {
-            idx = name.find(argv[2]);
-            if (idx >= 0)
-                name = rename(name, argv[2], argv[3]);
-        }
+        std::cout << name << std::endl;
+        idx = name.find(argv[2]);
+        if (idx >= 0)
+            name = rename(name, argv[2], argv[3]);
         ofs << name;
         if (ifs.eof())
 			break ;
