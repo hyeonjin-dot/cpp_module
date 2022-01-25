@@ -35,10 +35,15 @@ public:
     bool    operator==(Fixed const & src) const;
     bool    operator!=(Fixed const & src) const;
 
-    //Fixed   &max(Fixed &a, Fixed &b);//??
-    //Fixed const &max(Fixed const &a, Fixed const &b);//??
+    static Fixed   &max(Fixed &a, Fixed &b);//??
+    static Fixed const &max(Fixed const &a, Fixed const &b);//??
+    static Fixed   &min(Fixed &a, Fixed &b);//??
+    static Fixed const &min(Fixed const &a, Fixed const &b);//??
 
-    Fixed	operator++(int a);//????
+    Fixed	operator++(int);
+    Fixed	operator++(void);
+    Fixed	operator--(int);
+    Fixed	operator--(void);
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &value);//

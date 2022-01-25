@@ -120,37 +120,61 @@ bool	Fixed::operator!=(Fixed const & src) const
 	return ((this->toFloat() != src.toFloat()));
 }
 
-/*Fixed   & Fixed::max(Fixed &a, Fixed &b)
-{
-    if (a > b)
-        return (a);
-    return (b);
-}
-
-Fixed const & Fixed::max(Fixed const &a, Fixed const &b)
-{
-    if (a > b)
-        return (a);
-    return (b);
-}*/
-
 Fixed   Fixed::operator++(int)//a++
 {
     Fixed f(*this);
-    f.value++;
+    this->value++;
     return (f);
 }
 
-Fixed   Fixed::operator++()//++a
+Fixed   Fixed::operator++(void)//++a
+{
+    this->value++;
+    return (*this);
+}
+
+Fixed   Fixed::operator--(int)//a--
 {
     Fixed f(*this);
-    f.value++;
+    this->value--;
     return (f);
 }
 
+Fixed   Fixed::operator--(void)//--a
+{
+    this->value--;
+    return (*this);
+}
+
+Fixed   &Fixed::max(Fixed &a, Fixed &b)
+{
+    if (a > b)
+        return (a);
+    return (b);
+}
+
+Fixed const &Fixed::max(Fixed const & a, Fixed const & b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+Fixed   &Fixed::min(Fixed &a, Fixed &b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
+
+Fixed const &Fixed::min(Fixed const & a, Fixed const & b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
 
 /*
-++, --
 min 함수 : 두 개의 고정 소수점 값에 대한 참조를 가져와 가장 작은 값에 대한 참조를 반환하는 정적 멤버 함수
 위 min 함수를 오버로드하여 가장 작은 상수 값에 대한 참조를 반환하는 min 함수
 max 함수 : 두 개의 고정 소수점 값에 대한 참조를 가져와 가장 큰 값에 대한 참조를 반환하는 정적 멤버 함수
