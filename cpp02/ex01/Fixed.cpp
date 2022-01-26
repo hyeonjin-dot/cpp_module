@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-const int Fixed::bit = 8;
+const int Fixed::bit = 8;//소수점 8자리
 
 Fixed::Fixed()
 {
