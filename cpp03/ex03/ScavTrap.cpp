@@ -16,6 +16,13 @@ ScavTrap::ScavTrap(std::string name):ClapTrap(name)
     std::cout << "ScavTrap " << name << " string constructor called" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &tmp):ClapTrap(tmp)
+{
+    hit = tmp.hit;
+    energy = tmp.energy;
+    damage = tmp.damage;
+    std::cout << "ScavTrap " << name << " copy constructor called" << std::endl;
+}
 
 ScavTrap::~ScavTrap()
 {

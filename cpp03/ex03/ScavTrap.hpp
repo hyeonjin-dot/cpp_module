@@ -11,6 +11,7 @@ private:
 public:
     ScavTrap();
     ScavTrap(std::string name);
+    ScavTrap(const ScavTrap &tmp);
     ~ScavTrap();
 
     ScavTrap & operator=(ScavTrap const &tmp);

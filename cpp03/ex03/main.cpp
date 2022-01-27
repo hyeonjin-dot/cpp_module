@@ -10,6 +10,8 @@ int main()
     FragTrap d("frog");
     DiamondTrap a("dia");
 
+    DiamondTrap tmp(a);
+    std::cout << std::endl;
     a.attack("b");
     a.takeDamage(c.getDamage());
     a.guardGuate();

@@ -10,6 +10,7 @@ private:
 public:
     FragTrap();
     FragTrap(std::string name);
+    FragTrap(const FragTrap &tmp);
     ~FragTrap();
 
     void highFivesGuys(void);

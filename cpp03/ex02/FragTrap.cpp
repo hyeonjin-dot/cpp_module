@@ -16,6 +16,14 @@ FragTrap::FragTrap(std::string name):ClapTrap(name)
     std::cout << "FragTrap " << name << " default constructor called" << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &tmp):ClapTrap(tmp)
+{
+    hit = tmp.hit;
+    energy = tmp.energy;
+    damage = tmp.damage;
+    std::cout << "FragTrap " << name << " copy constructor called" << std::endl;
+}
+
 FragTrap::~FragTrap()
 {
     std::cout << "FragTrap " << name << " destructor called" << std::endl;

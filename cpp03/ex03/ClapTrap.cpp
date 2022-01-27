@@ -10,6 +10,11 @@ ClapTrap::ClapTrap(std::string name):name(name), hit(10), energy(10), damage(0)
     std::cout << "ClapTrap " << name << " string constructor called" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &tmp):name(tmp.name), hit(tmp.hit), energy(tmp.energy), damage(tmp.damage)
+{
+    std::cout << "ClapTrap " << name << " copy constructor called" << std::endl;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap " << name << " destructor called" << std::endl;
