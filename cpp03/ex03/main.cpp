@@ -10,12 +10,12 @@ int main()
     FragTrap d("frog");
     DiamondTrap a("dia");
 
-    c.attack("b");
-    b.takeDamage(c.getDamage());
-    c.guardGuate();
-    c.beRepaired(10);
-    d.attack("c");
-    c.takeDamage(d.getDamage());
-    d.highFivesGuys();
+    a.attack("b");
+    a.takeDamage(c.getDamage());
+    a.guardGuate();
+    a.beRepaired(10);
+    a.attack("c");
+    a.takeDamage(d.getDamage());
+    a.highFivesGuys();
     a.whoAmI();
 }

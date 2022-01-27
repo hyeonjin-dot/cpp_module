@@ -1,16 +1,18 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap():ClapTrap("nonamed_clap_name"), ScavTrap(), FragTrap()
 {
-    new_name = name + "_clap_name";//?
+    std::cout << "DiamondTrap " << name << " default constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name):ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
 {
+    std::cout << "DiamondTrap " << name << " default constructor called" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
 {
+    std::cout << "DiamondTrap " << name << " destructor called" << std::endl;
 }
 
 void    DiamondTrap::whoAmI()
@@ -24,4 +26,9 @@ DiamondTrap & DiamondTrap::operator=(DiamondTrap const& tmp)//?
     energy = tmp.energy;
     damage = tmp.damage;
     return (*this);
+}
+
+void DiamondTrap::attack(std::string const &target)
+{
+	this->ScavTrap::attack(target);//다중상속이라
 }
