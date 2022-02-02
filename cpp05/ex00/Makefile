@@ -6,11 +6,7 @@ CC = clang++
 FLAGS = -Wall -Werror -Wextra
 
 SRCS =	main.cpp \
-	AMateria.cpp \
-	Character.cpp \
-	Cure.cpp \
-	Ice.cpp \
-	MateriaSource.cpp
+	Bureaucrat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -28,3 +24,5 @@ fclean: clean
 re: fclean all
 
 .PHONY : all clean fclean re
+
+
