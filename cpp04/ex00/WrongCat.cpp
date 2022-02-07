@@ -1,15 +1,20 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat():WrongAnimal("WrongCat")
+WrongCat::WrongCat()
 {
+    type = "WrongCat";
+    std::cout << type << std::endl;
 }
 
-WrongCat::WrongCat(std::string name):WrongAnimal(name)
+WrongCat::WrongCat(std::string name)
 {
+    type = name;
+    std::cout << type << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &tmp):WrongAnimal(tmp)
+WrongCat::WrongCat(const WrongCat &tmp)
 {
+    *this = tmp;
 }
 
 WrongCat::~WrongCat()

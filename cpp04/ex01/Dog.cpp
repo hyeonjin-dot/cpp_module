@@ -5,10 +5,6 @@ Dog::Dog():Animal("Dog")
     this->brain = new Brain();
 }
 
-Dog::Dog(std::string name):Animal(name)
-{
-}
-
 Dog::Dog(const Dog &tmp):Animal(tmp)
 {
     this->brain = new Brain(*tmp.getBrain());
@@ -22,8 +18,8 @@ Dog::~Dog()
 Dog &	Dog::operator=(Dog const &tmp)
 {
     this->~Dog();
-    this->Animal::operator=(tmp);
     this->brain = new Brain(*tmp.getBrain());
+    this->Animal::operator=(tmp);
     return (*this);
 }
 

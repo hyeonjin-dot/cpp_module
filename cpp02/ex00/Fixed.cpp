@@ -11,7 +11,7 @@ Fixed::Fixed()
 Fixed::Fixed(Fixed const &tmp)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = tmp;//operator로 이동 연산자오버로딩 
+    *this = tmp;
 }
 
 Fixed::~Fixed()
