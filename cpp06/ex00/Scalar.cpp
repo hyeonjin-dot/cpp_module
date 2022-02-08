@@ -1,28 +1,26 @@
 #include "Scalar.hpp"
 
-/*Scalar::Scalar()
+Scalar::Scalar():input()
 {
-    input = "Nothing";
-}*/
+}
 
 Scalar::Scalar(std::string &tmp): input(tmp)
 {
 }
 
-/*Scalar::Scalar(const Scalar &tmp)
+Scalar::Scalar(const Scalar &tmp):input(tmp.input)
 {
-    input = tmp.input;
-}*/
+}
 
 Scalar::~Scalar()
 {
 }
 
-/*Scalar &Scalar::operator=(const Scalar &tmp)
+Scalar &Scalar::operator=(const Scalar &tmp)
 {
-    input = tmp.input;
+    (std::string)input = (std::string)tmp.input;
     return (*this);
-}*/
+}
 
 const char* Scalar::Impossible::what() const throw()
 {
@@ -64,7 +62,7 @@ int Scalar::intoInt() const
 
     try
     {
-        n = std::stoi(this->input);
+        n = std::stoi(this->input);//
     }
     catch(...)
     {
@@ -79,7 +77,7 @@ float Scalar::intoFloat() const
 
     try
     {
-        f = std::stof(this->input);
+        f = std::stof(this->input);//
     }
     catch(...)
     {
@@ -94,7 +92,7 @@ double Scalar::intoDouble() const
 
     try
     {
-        d = std::stod(this->input);
+        d = std::stod(this->input);//
     }
     catch(...)
     {
@@ -126,7 +124,7 @@ std::ostream &operator<<(std::ostream& os, const Scalar &tmp)
     {
         std::cerr << e.what() << '\n';
     }
-    os << "float : ";//-inff, +inff and nanf
+    os << "float : ";
     try
     {
         float f;

@@ -10,9 +10,9 @@ class Scalar
 private:
     const std::string input;
 public:
-    //Scalar();
+    Scalar();
     Scalar(std::string &tmp);
-   // Scalar(const Scalar &tmp);
+    Scalar(const Scalar &tmp);
     ~Scalar();
 
     std::string const &returnValue() const;
@@ -21,7 +21,7 @@ public:
     float intoFloat() const;
     double intoDouble() const;
 
-   // Scalar &operator=(const Scalar &tmp);
+    Scalar &operator=(const Scalar &tmp);
 
     class Impossible : public std::exception 
     { 
