@@ -62,7 +62,7 @@ int Scalar::intoInt() const
 
     try
     {
-        n = std::stoi(this->input);//
+        n = std::stoi(this->input);//atoi
     }
     catch(...)
     {
