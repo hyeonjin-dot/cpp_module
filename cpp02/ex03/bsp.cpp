@@ -10,16 +10,19 @@ float   check(Point a, Point b, Point c)//직선방정식
 
 bool bsp( Point const a, Point const b, Point const c, Point const point) //abc삼각형 안에 point 점이 있는가?
 {
-    float x = check(a, b, point);
-    float y = check(a, c, point);
-    float z = check(b, c, point);
+    float x1 = check(a, b, point);
+    float y1 = check(a, c, point);
+    float z1 = check(b, c, point);
+    float x2 = check(a, b, c);
+    float y2 = check(a, c, b);
+    float z2 = check(b, c, a);
 
-    if (x * y < 0 || x * z < 0 || y * z < 0)
+    if (x1 * x2 < 0)
         return (false);
-    else if (x > 0 && y > 0 && z > 0)
-        return (true);
-    else if (x < 0 && y < 0 && z < 0)
-        return (true);
+    if (y1 * y2 < 0)
+        return (false);
+    if (z1 * z2 < 0)
+        return (false);
     else
-        return (false);
+        return (true);
 }

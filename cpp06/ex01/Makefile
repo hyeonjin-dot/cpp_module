@@ -1,12 +1,13 @@
 
-NAME = convert
+NAME = Serialization
 
 CC = clang++
 
 FLAGS = -Wall -Werror -Wextra
 
 SRCS =	main.cpp \
-	Scalar.cpp
+	Data.cpp
+	
 
 OBJS = $(SRCS:.cpp=.o)
 

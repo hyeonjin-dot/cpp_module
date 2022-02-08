@@ -90,7 +90,7 @@ float Scalar::intoFloat() const
 
 double Scalar::intoDouble() const
 {
-    float d;
+    double d;
 
     try
     {
@@ -118,16 +118,23 @@ std::ostream &operator<<(std::ostream& os, const Scalar &tmp)
     os << "int : ";
     try
     {
-        os << tmp.intoInt() << std::endl;
+        int a;
+        a = tmp.intoInt();
+        os << a << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    os << "float : ";
-        try
+    os << "float : ";//-inff, +inff and nanf
+    try
     {
-        os << tmp.intoFloat() << std::endl;//https://bigpel66.oopy.io/library/42/inner-circle/17
+        float f;
+        f = tmp.intoFloat();
+        os << f;
+        if (f - (int)f == 0)
+            os << ".0";
+        os << "f" << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -136,7 +143,12 @@ std::ostream &operator<<(std::ostream& os, const Scalar &tmp)
     os << "double : ";
         try
     {
-        os << tmp.intoDouble() << std::endl;//
+        double d;
+        d = tmp.intoDouble();
+        os << d;
+        if (d - (int)d == 0)
+            os << ".0";
+        os << std::endl;
     }
     catch(const std::exception& e)
     {
