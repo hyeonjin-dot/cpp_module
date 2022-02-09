@@ -1,12 +1,17 @@
-#include "Data.hpp"
+#include "Serialization.hpp"
 
 int main()
 {
-    Data *data;
+    Data data;
 
-    init_data(data);
-    data->log = 10;
-    std::cout << &(data->log) << std::endl;
-    std::cout << std::hex << serialize(data) << std::endl;
+    data.name = "hj";
+    data.log = 10;
+
+    uintptr_t raw = serialize(&data);
+
+    Data *two = deserialize(raw);
+
+    std::cout << two->name << std::endl;
+    std::cout << two->log << std::endl;
 
 }

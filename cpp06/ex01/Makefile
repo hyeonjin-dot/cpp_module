@@ -6,7 +6,7 @@ CC = clang++
 FLAGS = -Wall -Werror -Wextra
 
 SRCS =	main.cpp \
-	Data.cpp
+	Serialization.cpp
 	
 
 OBJS = $(SRCS:.cpp=.o)

@@ -44,16 +44,16 @@ char    Scalar::intoChar() const
     try
     {
         n = std::stoi(this->input);
-        if (n < 0 || n > 255)
+        if (isinf(n)|| isnan(n))
             throw Scalar::Impossible();
     }
     catch(...)
     {
         throw Scalar::Impossible();
     }
-    if (n == 0)
+    if (n < 32 || n > 126)
         throw Scalar::Nondisplay();
-    return (n);
+    return (static_cast<char>(n));
 }
 
 int Scalar::intoInt() const
@@ -62,7 +62,7 @@ int Scalar::intoInt() const
 
     try
     {
-        n = std::stoi(this->input);//atoi
+        n = std::stoi((this->input));
     }
     catch(...)
     {
@@ -77,13 +77,13 @@ float Scalar::intoFloat() const
 
     try
     {
-        f = std::stof(this->input);//
+        f = std::stof((this->input));
     }
     catch(...)
     {
         throw Scalar::Impossible();
     }
-    return (f);
+    return (static_cast<float>(f));
 }
 
 double Scalar::intoDouble() const
@@ -92,13 +92,13 @@ double Scalar::intoDouble() const
 
     try
     {
-        d = std::stod(this->input);//
+        d = std::stod((this->input));
     }
     catch(...)
     {
         throw Scalar::Impossible();
     }
-    return (d);
+    return (static_cast<double>(d));
 }
 
 std::ostream &operator<<(std::ostream& os, const Scalar &tmp)
@@ -118,6 +118,8 @@ std::ostream &operator<<(std::ostream& os, const Scalar &tmp)
     {
         int a;
         a = tmp.intoInt();
+        if (isinf(a) == true)
+            throw Scalar::Impossible();
         os << a << std::endl;
     }
     catch(const std::exception& e)
@@ -130,7 +132,7 @@ std::ostream &operator<<(std::ostream& os, const Scalar &tmp)
         float f;
         f = tmp.intoFloat();
         os << f;
-        if (f - (int)f == 0)
+        if (f - static_cast<int>(f) == 0)
             os << ".0";
         os << "f" << std::endl;
     }
@@ -144,7 +146,7 @@ std::ostream &operator<<(std::ostream& os, const Scalar &tmp)
         double d;
         d = tmp.intoDouble();
         os << d;
-        if (d - (int)d == 0)
+        if (d - static_cast<int>(d) == 0)
             os << ".0";
         os << std::endl;
     }

@@ -6,7 +6,10 @@ CC = clang++
 FLAGS = -Wall -Werror -Wextra
 
 SRCS =	main.cpp \
-	Scalar.cpp
+	Base.cpp \
+	A.cpp \
+	B.cpp \
+	C.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
