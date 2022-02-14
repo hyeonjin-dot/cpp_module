@@ -11,7 +11,7 @@ public:
     WrongAnimal();
     WrongAnimal(std::string type);
     WrongAnimal(const WrongAnimal &tmp);
-    virtual ~WrongAnimal();
+    ~WrongAnimal();
 
     WrongAnimal &    operator=(WrongAnimal const &tmp);
 

@@ -14,7 +14,7 @@ public:
     ClapTrap();
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap &tmp);
-    ~ClapTrap();
+    virtual ~ClapTrap();
 
     ClapTrap & operator=(ClapTrap const &tmp);
 

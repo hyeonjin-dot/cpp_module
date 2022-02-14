@@ -32,8 +32,3 @@ Animal &	Animal::operator=(Animal const &tmp)
     this->type = tmp.getType();
     return (*this);
 }
-
-/*void    Animal::makeSound() const
-{
-    std::cout << "Animal Animal!" << std::endl;
-}*/
