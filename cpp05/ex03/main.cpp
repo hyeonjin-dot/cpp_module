@@ -7,21 +7,51 @@
 
 int main()
 {
-  	Intern  someRandomIntern;
-	Form*   rrf1;
-	Form*   rrf2;
-	Form*   rrf3;
+	Intern  someRandomIntern;
+	Form*   rrf;
 
-	try
-	{
-		rrf1 = someRandomIntern.makeForm("RobotomyRequest", "Bender");
-		rrf2 = someRandomIntern.makeForm("ShrubberyCreation", "Bender");
-		rrf3 = someRandomIntern.makeForm("PresidentialPardon", "Bender");
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	rrf = someRandomIntern.makeForm("RobotomyRequest", "Bender");
+	
+	std::cout << "---------------" << std::endl;
 
-  return 0;
+	Intern a;
+	Intern b;
+	Intern c;
+
+	Form *a1;
+	Form *b1;
+	Form *c1;
+
+	a1 = a.makeForm("ShrubberyCreation", "A");
+	b1 = b.makeForm("PresidentialPardon", "B");
+	c1 = c.makeForm("WrongRequest", "C");
+	std::cout << "-------------" << std::endl;
+
+	std::string n = "new";
+	Bureaucrat				man(n, 1);
+
+	std::cout << man << std::endl;
+	man.signForm(*a1);
+	std::cout << *a1;
+	man.executeForm(*a1);
+
+	std::cout << "-------------" << std::endl;
+
+	n = "pre";
+	Bureaucrat				man1(n, 6);
+
+	std::cout << man1 << std::endl;
+	man1.signForm(*b1);
+	std::cout << *b1;
+	man1.executeForm(*b1);
+
+	std::cout << "-------------" << std::endl;
+
+	n = "rob";
+	Bureaucrat				man2(n, 3);
+
+	std::cout << man2 << std::endl;
+	man2.signForm(*rrf);
+	std::cout << *rrf;
+	man2.executeForm(*rrf);
 }

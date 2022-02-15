@@ -44,7 +44,6 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &tmp) const
             if (ofs.is_open())
             {
                 ofs << asci;
-                std::cout << "here" << std::endl;//
                 ofs.close();
             }
             else
