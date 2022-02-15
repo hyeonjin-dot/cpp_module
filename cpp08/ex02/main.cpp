@@ -1,5 +1,5 @@
-#include "mutantstack.hpp"
-#include "mutantstack.cpp"
+//#include "mutantstack.hpp"
+#include "mutantstack.cpp"//구현체
 
 int main()
 {

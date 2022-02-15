@@ -3,11 +3,13 @@
 AMateria::AMateria()
 {
     type = "Nonamed";
+    xp = 20;
 }
 
 AMateria::AMateria(std::string const & tmp)
 {
     type = tmp;
+    xp = 20;
 }
 
 AMateria::AMateria(const AMateria &tmp)
@@ -26,7 +28,8 @@ AMateria &AMateria::operator=(const AMateria &other)
 
 void    AMateria::use(ICharacter & target)
 {
-    
+    (void)target;
+    this->xp += 10;
 }
 
 std::string const &AMateria::getType() const

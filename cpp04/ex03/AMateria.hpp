@@ -10,6 +10,7 @@ class AMateria
 {
 protected:
     std::string type;
+    unsigned int xp;
 public:
     virtual ~AMateria();
     AMateria();

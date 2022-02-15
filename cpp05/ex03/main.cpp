@@ -8,8 +8,20 @@
 int main()
 {
   	Intern  someRandomIntern;
-	Form*   rrf;
+	Form*   rrf1;
+	Form*   rrf2;
+	Form*   rrf3;
 
-	rrf = someRandomIntern.makeForm("RobotomyRequest", "Bender");
+	try
+	{
+		rrf1 = someRandomIntern.makeForm("RobotomyRequest", "Bender");
+		rrf2 = someRandomIntern.makeForm("ShrubberyCreation", "Bender");
+		rrf3 = someRandomIntern.makeForm("PresidentialPardon", "Bender");
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
   return 0;
 }
