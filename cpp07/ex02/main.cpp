@@ -49,5 +49,21 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
+
+    std::cout <<  "------------------" << std::endl;
+    Array<std::string> lst(2);
+    
+    lst[0] = "hi";
+    lst[1] = "hello";
+
+    for (int i = 0; i < 2 ; i++)
+        std::cout << lst[i] << std::endl;
+
+    std::cout <<  "------------------" << std::endl;
+    Array<std::string> copy(lst);
+
+    for (int i = 0; i < 2 ; i++)
+        std::cout << copy[i] << std::endl;
+
     return 0;
 }

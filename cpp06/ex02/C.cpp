@@ -13,4 +13,7 @@ C::~C()
 }
 
 C &C::operator=(const C &tmp)
-{}
+{
+    (void)tmp;
+    return *this;
+}

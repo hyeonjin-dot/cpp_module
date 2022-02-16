@@ -14,4 +14,6 @@ A::~A()
 
 A &A::operator=(const A &tmp)
 {
+    (void)tmp;
+    return *this;
 }

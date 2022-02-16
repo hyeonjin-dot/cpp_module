@@ -25,7 +25,7 @@ MutantStack<T> &MutantStack<T>::operator=(const MutantStack<T> &tmp)
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin()
 {
-    return this->c.begin();
+    return this->c.begin();//deque container (protected member)
 }
 
 template <typename T>

@@ -1,4 +1,4 @@
-//#include "mutantstack.hpp"
+#include "mutantstack.hpp"
 #include "mutantstack.cpp"//구현체
 
 int main()

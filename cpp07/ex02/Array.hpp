@@ -43,18 +43,18 @@ public:
         return (*this);
     }
 
+    unsigned int return_size() const 
+    {
+        return size;
+    };
+
     T &operator[](unsigned int i)
     {
-        if (i < 0 || i >= size)
+        if (i < 0 || i >= static_cast<int>(this->return_size()))
             throw IndexError();
         else
             return (array[i]);
     }
-
-    unsigned int size() const 
-    {
-        return size;
-    };
 
     class IndexError : public std::exception
 	{
