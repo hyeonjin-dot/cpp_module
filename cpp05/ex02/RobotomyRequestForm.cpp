@@ -32,7 +32,10 @@ void    RobotomyRequestForm::execute(const Bureaucrat &tmp) const
         else
         {
 			if (rand() % 2 == 1)
+            {
+                std::cout << "Drillllllll" << std::endl;
 				std::cout << "<" << target << "> has been robotomized successfully." << std::endl;
+            }
 			else
 				std::cout << "<" << target << "> robotomization has failed." << std::endl;
         }
