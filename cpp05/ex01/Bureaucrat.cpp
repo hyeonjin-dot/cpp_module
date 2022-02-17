@@ -9,7 +9,7 @@ Bureaucrat::Bureaucrat(std::string &tmp, int num):name(tmp), grade(num)
 {
     if (grade < 1)
         throw Bureaucrat::GradeTooHighException();
-    if (grade >= 150)
+    if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
 }   
 
