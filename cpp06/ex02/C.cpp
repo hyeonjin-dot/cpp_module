@@ -6,6 +6,7 @@ C::C()
 
 C::C(const C &tmp)
 {
+    (void) tmp;
 }
 
 C::~C()

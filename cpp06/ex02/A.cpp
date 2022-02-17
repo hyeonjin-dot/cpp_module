@@ -6,6 +6,7 @@ A::A()
 
 A::A(const A &tmp)
 {
+    (void) tmp;
 }
 
 A::~A()

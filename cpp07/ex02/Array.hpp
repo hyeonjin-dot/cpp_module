@@ -50,7 +50,7 @@ public:
 
     T &operator[](unsigned int i)
     {
-        if (i < 0 || i >= static_cast<int>(this->return_size()))
+        if (i < 0 || i >= static_cast<unsigned int>(this->return_size()))
             throw IndexError();
         else
             return (array[i]);

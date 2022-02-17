@@ -3,7 +3,7 @@ NAME = a.out
 
 CC = clang++
 
-FLAGS = -Wall -Werror -Wextra
+CPPFLAGS = -Wall -Werror -Wextra
 
 SRCS =	main.cpp \
 	Bureaucrat.cpp
@@ -11,7 +11,7 @@ SRCS =	main.cpp \
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME): $(OBJS)
-	clang++ $(FLAGS) -o $(NAME) $(OBJS)
+	clang++ $(CPPFLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
