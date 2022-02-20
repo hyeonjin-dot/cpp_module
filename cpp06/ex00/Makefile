@@ -1,7 +1,7 @@
 
 NAME = convert
 
-CC = clang++
+CC = c++
 
 CPPFLAGS = -Wall -Werror -Wextra
 
@@ -10,8 +10,11 @@ SRCS =	main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
+%.o : %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	clang++ $(CPPFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
