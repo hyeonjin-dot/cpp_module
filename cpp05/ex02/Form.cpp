@@ -4,7 +4,7 @@
 Form::Form()
 {
     name = "Nonamed";
-    sign = 0;
+    sign = false;
     grade_e = 1;
     grade_s = 1;
 }
