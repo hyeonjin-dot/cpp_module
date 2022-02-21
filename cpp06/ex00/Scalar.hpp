@@ -36,5 +36,7 @@ public:
 };
 
 std::ostream &operator<<(std::ostream& os, const Scalar &tmp);
+int ft_strlen(const char* tmp);
+bool    check_num(const char* tmp);
 
 #endif

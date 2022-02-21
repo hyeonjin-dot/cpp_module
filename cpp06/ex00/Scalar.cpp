@@ -37,10 +37,25 @@ std::string const &Scalar::returnValue() const
     return (input);
 }
 
-/*
-	std::string	array[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	std::string *ptr = std::find(array, array + 4, level);
-*/
+int ft_strlen(const char* tmp)
+{
+    int i = 0;
+    while (tmp[i])
+        i++;
+    return i;
+}
+
+bool    check_num(const char* tmp)
+{
+    int i=0;
+    while (tmp[i])
+    {
+        if (tmp[i] < 47 || tmp[i] > 57)
+            return (false);
+        i++;
+    }
+    return (true);
+}
 
 char    Scalar::intoChar() const
 {
@@ -48,23 +63,19 @@ char    Scalar::intoChar() const
     const char* tmp;
     std::string	array[] = {"inf", "inff", "-inf", "-inff", "+inf", "+inff", "nan", "nanf"};
 
-    try
-    {
+
         tmp = (this->input).c_str();
         n = std::atoi(tmp);
+        if (ft_strlen(tmp) == 1 && (static_cast<int>(tmp[0]) < 48 || static_cast<int>(tmp[0]) > 57))
+            return (static_cast<char>(tmp[0]));
         std::string *ptr = std::find(array, array + 8, this->input);
         int idx = ptr - array;
         if (idx < 8)
             throw Scalar::Impossible();
-        if (n == 0 && idx == 8)            
+        if ((n < 32 || n > 126) && check_num(tmp))
+            throw Scalar::Nondisplay();
+        if (idx == 8 && ft_strlen(tmp) > 1 && !check_num(tmp))
             throw Scalar::Impossible();
-    }
-    catch(...)
-    {
-        throw Scalar::Impossible();
-    }
-    if (n < 32 || n > 126)
-        throw Scalar::Nondisplay();
     return (static_cast<char>(n));
 }
 
@@ -76,8 +87,8 @@ int Scalar::intoInt() const
     
     tmp = (this->input).c_str();
     n = std::atoi(tmp);
-    if (static_cast<int>(tmp[0]) == 48 && !tmp[1])
-        return (n);
+    if (ft_strlen(tmp) == 1 && (static_cast<int>(tmp[0]) < 48 || static_cast<int>(tmp[0]) > 57))
+        return (static_cast<int>(tmp[0]));
     std::string *ptr = std::find(array, array + 8, this->input);
     int idx = ptr - array;
     if (idx < 8)
@@ -92,17 +103,13 @@ float Scalar::intoFloat() const
     float f;
     const char* tmp;
 
-    try
-    {
+
         tmp = (this->input).c_str();
         f = std::atof(tmp);
-        if (static_cast<float>(f) == 0 && intoInt() != 0)
+        if (ft_strlen(tmp) == 1 && (static_cast<int>(tmp[0]) < 48 || static_cast<int>(tmp[0]) > 57))
+            return (static_cast<float>(tmp[0]));
+        if (!check_num(tmp) && static_cast<int>(f) == 0)
             throw Scalar::Impossible();
-    }
-    catch(...)
-    {
-        throw Scalar::Impossible();
-    }
     return (static_cast<float>(f));
 }
 
@@ -111,17 +118,14 @@ double Scalar::intoDouble() const
     double d;
     const char* tmp;
 
-    try
-    {
+
         tmp = (this->input).c_str();
         d = std::atof(tmp);
-        if (static_cast<double>(d) == 0 && intoInt() != 0)
+        if (ft_strlen(tmp) == 1 && (static_cast<int>(tmp[0]) < 48 || static_cast<int>(tmp[0]) > 57))
+            return (static_cast<double>(tmp[0]));
+        if (!check_num(tmp) && static_cast<int>(d) == 0)
             throw Scalar::Impossible();
-    }
-    catch(...)
-    {
-        throw Scalar::Impossible();
-    }
+
     return (static_cast<double>(d));
 }
 
