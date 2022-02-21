@@ -22,7 +22,8 @@ public:
     };
     ~Array()
     {
-        delete [] array;
+        if (array)
+            delete [] array;
     };
 
     Array& operator=(const Array& tmp)
