@@ -9,8 +9,8 @@ class Scalar
 {
 private:
     const std::string input;
-public:
     Scalar();
+public:
     Scalar(std::string &tmp);
     Scalar(const Scalar &tmp);
     ~Scalar();
