@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 10
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -44,13 +44,18 @@ int main(int, char**)
         std::cerr << e.what() << '\n';
     }
 
+    std::cout << "------------------" << std::endl;
+
     for (int i = 0; i < MAX_VAL; i++)
     {
+        std::cout << numbers[i];
         numbers[i] = rand();
+        std::cout << " -> " << numbers[i] << std::endl;
     }
     delete [] mirror;//
 
     std::cout <<  "------------------" << std::endl;
+
     Array<std::string> lst(2);
     
     lst[0] = "hi";
@@ -60,6 +65,7 @@ int main(int, char**)
         std::cout << lst[i] << std::endl;
 
     std::cout <<  "------------------" << std::endl;
+
     Array<std::string> copy(lst);
 
     for (int i = 0; i < 2 ; i++)
