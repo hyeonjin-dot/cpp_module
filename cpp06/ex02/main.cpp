@@ -37,14 +37,36 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-    if (dynamic_cast<A *>(&p))
-        std::cout << "A" << std::endl;
-    else if (dynamic_cast<B *>(&p))
-        std::cout << "B" << std::endl;
-    else if (dynamic_cast<C *>(&p))
-        std::cout << "C" << std::endl;
-    else
-        std::cout << "NULL" << std::endl;
+    try
+    {
+        A   &ref_a = dynamic_cast<A &>(p);
+		(void)ref_a;
+		std::cout << "A" << std::endl;
+        return ;
+    }
+    catch(std::bad_cast n)
+    {
+    }
+    try
+    {
+        B	&ref_b = dynamic_cast<B &>(p);
+		(void)ref_b;
+		std::cout << "B" << std::endl;
+        return ;
+    }
+    catch(std::bad_cast n)
+    {
+    }
+    try
+    {
+        C	&ref_c = dynamic_cast<C &>(p);
+		(void)ref_c;
+		std::cout << "C" << std::endl;
+        return ;
+    }
+    catch(std::bad_cast n)
+    {
+    }
 }
 
 int main()
