@@ -37,14 +37,26 @@ std::string const &Scalar::returnValue() const
     return (input);
 }
 
+/*
+	std::string	array[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string *ptr = std::find(array, array + 4, level);
+*/
+
 char    Scalar::intoChar() const
 {
     int n;
+    const char* tmp;
+    std::string	array[] = {"inf", "inff", "-inf", "-inff", "+inf", "+inff", "nan", "nanf"};
 
     try
     {
-        n = std::stoi(this->input);
-        if (isinf(n)|| isnan(n))
+        tmp = (this->input).c_str();
+        n = std::atoi(tmp);
+        std::string *ptr = std::find(array, array + 8, this->input);
+        int idx = ptr - array;
+        if (idx < 8)
+            throw Scalar::Impossible();
+        if (n == 0 && idx == 8)            
             throw Scalar::Impossible();
     }
     catch(...)
@@ -59,25 +71,33 @@ char    Scalar::intoChar() const
 int Scalar::intoInt() const
 {
     int n;
-
-    try
-    {
-        n = std::stoi((this->input));
-    }
-    catch(...)
-    {
+    const char* tmp;
+    std::string	array[] = {"inf", "inff", "-inf", "-inff", "+inf", "+inff", "nan", "nanf"};
+    
+    tmp = (this->input).c_str();
+    n = std::atoi(tmp);
+    if (static_cast<int>(tmp[0]) == 48 && !tmp[1])
+        return (n);
+    std::string *ptr = std::find(array, array + 8, this->input);
+    int idx = ptr - array;
+    if (idx < 8)
         throw Scalar::Impossible();
-    }
+    if (n == 0 && idx == 8)            
+        throw Scalar::Impossible();
     return (n);
 }
 
 float Scalar::intoFloat() const
 {
     float f;
+    const char* tmp;
 
     try
     {
-        f = std::stof((this->input));
+        tmp = (this->input).c_str();
+        f = std::atof(tmp);
+        if (static_cast<float>(f) == 0 && intoInt() != 0)
+            throw Scalar::Impossible();
     }
     catch(...)
     {
@@ -89,10 +109,14 @@ float Scalar::intoFloat() const
 double Scalar::intoDouble() const
 {
     double d;
+    const char* tmp;
 
     try
     {
-        d = std::stod((this->input));
+        tmp = (this->input).c_str();
+        d = std::atof(tmp);
+        if (static_cast<double>(d) == 0 && intoInt() != 0)
+            throw Scalar::Impossible();
     }
     catch(...)
     {
@@ -118,8 +142,6 @@ std::ostream &operator<<(std::ostream& os, const Scalar &tmp)
     {
         int a;
         a = tmp.intoInt();
-        if (isinf(a) == true)
-            throw Scalar::Impossible();
         os << a << std::endl;
     }
     catch(const std::exception& e)
