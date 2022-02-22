@@ -21,7 +21,7 @@ public:
     typedef typename std::stack<T>::container_type::iterator iterator;
     typedef typename std::stack<T>::container_type::reverse_iterator re_iterator;
     iterator    begin(){return this->c.begin();};//deque container (protected member)
-    iterator    end(){return this->c.end();};//end는 공백
+    iterator    end(){return this->c.end();};//
     re_iterator    rbegin(){return this->c.rbegin();};//
     re_iterator    rend(){return this->c.rend();};//
 };
