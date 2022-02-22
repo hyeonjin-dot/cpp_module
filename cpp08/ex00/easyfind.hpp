@@ -17,12 +17,12 @@ public:
 };
 
 template <typename T>
-int &easyfind(T &a, int num)
+typename T::iterator easyfind(T &a, int num)
 {
     typename T::iterator iter = std::find(a.begin(), a.end(), num);
     if (iter == a.end())
         throw Cannotfind();
-    return *iter;
+    return iter;
 }
 
 #endif

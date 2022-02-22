@@ -17,14 +17,19 @@ int main()
 	}
 	std::cout << std::endl;
 
+	std::vector<int>::iterator it;
+	
 	try
 	{
-		easyfind(vec, 4);
-		std::cout << "easy find!" << std::endl;
-		easyfind(vec, 8);
-		std::cout << "easy find!" << std::endl;
-		easyfind(vec, 12);
-		std::cout << "easy find!" << std::endl;
+		it = easyfind(vec, 4);
+		if (it != vec.end())
+			std::cout << "easy find!" << std::endl;
+		it = easyfind(vec, 8);
+			if (it != vec.end())
+			std::cout << "easy find!" << std::endl;
+		it = easyfind(vec, 12);
+		if (it != vec.end())
+			std::cout << "easy find!" << std::endl;
 	}
     catch(const std::exception& e)
     {
