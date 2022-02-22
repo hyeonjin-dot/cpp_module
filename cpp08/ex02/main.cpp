@@ -1,5 +1,4 @@
 #include "mutantstack.hpp"
-#include "mutantstack.cpp"//구현체
 
 int main()
 {
@@ -20,11 +19,24 @@ int main()
     MutantStack<int>::iterator it = mstack.begin(); 
     MutantStack<int>::iterator ite = mstack.end();
 
+    ++it;
+    --it;
+
     std::cout << "------<print>------" << std::endl;
     while (it != ite) 
     {
         std::cout << *it << std::endl;
         ++it;
+    }
+
+    MutantStack<int>::re_iterator rit = mstack.rbegin(); 
+    MutantStack<int>::re_iterator rite = mstack.rend();
+
+    std::cout << "------<print>------" << std::endl;
+    while (rit != rite) 
+    {
+        std::cout << *rit << std::endl;
+        ++rit;
     }
 
     std::stack<int> s(mstack);

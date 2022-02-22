@@ -8,15 +8,22 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-    MutantStack();
-    MutantStack(const MutantStack<T> &tmp);
-    virtual ~MutantStack();
+    MutantStack() : std::stack<T>(){};
+    MutantStack(const MutantStack<T> &tmp): std::stack<T>(tmp){};
+    virtual ~MutantStack(){};
 
-    MutantStack<T> &operator=(const MutantStack<T> &tmp);
+    MutantStack<T> &operator=(const MutantStack<T> &tmp)
+    {
+        std::stack<T>::operator=(tmp);
+        return (*this);
+    };
 
     typedef typename std::stack<T>::container_type::iterator iterator;
-    iterator    begin();
-    iterator    end();
+    typedef typename std::stack<T>::container_type::reverse_iterator re_iterator;
+    iterator    begin(){return this->c.begin();};//deque container (protected member)
+    iterator    end(){return this->c.end();};
+    re_iterator    rbegin(){return this->c.rbegin();};//
+    re_iterator    rend(){return this->c.rend();};//
 };
 
 #endif
