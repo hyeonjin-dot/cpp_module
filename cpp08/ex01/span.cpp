@@ -54,23 +54,17 @@ unsigned int Span::shortestSpan()
     
     std::vector<int> tmp = v;
     std::sort(tmp.begin(), tmp.end());
-    
+
     std::vector<int>::iterator iter1 = tmp.begin();
     std::vector<int>::iterator iter2 = ++tmp.begin();
-    std::vector<int>::iterator iter3 = iter1;
-    unsigned int min = (iter2 - iter1);
+    unsigned int min = static_cast<unsigned int>(*iter2 - *iter1);
 
     while (iter1 != --tmp.end())
     {
-        iter3 = iter1;
-        iter2 = ++iter1;
-        iter1 = iter3;
-        while (iter2 != tmp.end())
-        {
-            if (min > (iter2 - iter1))
-                min = (iter2 - iter1);
-            ++iter2;
-        }
+        if (min > static_cast<unsigned int>(*iter2 - *iter1))
+            min = static_cast<unsigned int>(*iter2 - *iter1);
+        
+        ++iter2;
         ++iter1;
     }
     return min;
